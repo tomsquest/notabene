@@ -2,8 +2,10 @@
   "name": "front",
   "version": "1.0.0",
   "private": true,
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "live-server --no-browser --open=/app"
+  },
+  "devDependencies": {
+    "live-server": "latest"
   }
 }
