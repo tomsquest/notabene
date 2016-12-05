@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build:scss": "node-sass    app -o dist",
-    "watch:scss": "node-sass -w app -o dist",
-
-    "watch": "live-server --no-browser --open=/app"
+    "watch": "brunch watch --server",
+    "build": "brunch build --production"
   },
   "devDependencies": {
-    "live-server": "latest",
-    "node-sass": "^3.13.0"
+    "brunch": "latest",
+    "brunch-typescript": "latest",
+    "sass-brunch": "latest",
+    "browser-sync-brunch": "latest"
   }
 }
