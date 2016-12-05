@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "build:scss": "node-sass    app -o dist",
+    "watch:scss": "node-sass -w app -o dist",
+
     "watch": "live-server --no-browser --open=/app"
   },
   "devDependencies": {
-    "live-server": "latest"
+    "live-server": "latest",
+    "node-sass": "^3.13.0"
   }
 }
