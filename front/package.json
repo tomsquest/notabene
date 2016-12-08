@@ -11,6 +11,7 @@
     "brunch": "latest",
     "brunch-typescript": "latest",
     "digest-brunch": "latest",
-    "sass-brunch": "latest"
+    "sass-brunch": "latest",
+    "uglify-js-brunch": "latest"
   }
 }
