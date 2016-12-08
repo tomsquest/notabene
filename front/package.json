@@ -7,9 +7,10 @@
     "build": "brunch build --production"
   },
   "devDependencies": {
+    "browser-sync-brunch": "latest",
     "brunch": "latest",
     "brunch-typescript": "latest",
-    "sass-brunch": "latest",
-    "browser-sync-brunch": "latest"
+    "digest-brunch": "^1.6.0",
+    "sass-brunch": "latest"
   }
 }
