@@ -10,7 +10,7 @@
     "browser-sync-brunch": "latest",
     "brunch": "latest",
     "brunch-typescript": "latest",
-    "digest-brunch": "^1.6.0",
+    "digest-brunch": "latest",
     "sass-brunch": "latest"
   }
 }
