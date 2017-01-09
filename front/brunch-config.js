@@ -1,4 +1,9 @@
 module.exports = {
+    overrides: {
+        production: {
+            sourceMaps: true
+        }
+    },
     files: {
         javascripts: {
             joinTo: {
