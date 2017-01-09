@@ -11,10 +11,5 @@ module.exports = {
         autoRequire: {
             'app.js': ['app']
         }
-    },
-    plugins: {
-        sass: {
-            allowCache: true
-        }
     }
 };
