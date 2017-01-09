@@ -9,7 +9,7 @@ Front:
 ```bash
 cd front
 yarn install
-yarn run watch
+yarn start
 ```
 
 ## Credits
