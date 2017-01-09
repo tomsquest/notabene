@@ -1,15 +1,26 @@
 module.exports = {
     files: {
         javascripts: {
-            joinTo: 'app.js'
+            joinTo: {
+                'app.js': /^app/,
+                'vendor.js': /^(?!app)/
+            }
         },
         stylesheets: {
             joinTo: 'app.css'
         },
+        templates: {
+            joinTo: 'app.js'
+        }
     },
     modules: {
         autoRequire: {
             'app.js': ['app']
+        }
+    },
+    plugins: {
+        brunchTypescript: {
+            "jsx": "react"
         }
     }
 };

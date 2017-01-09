@@ -4,14 +4,25 @@
   "private": true,
   "scripts": {
     "start": "brunch watch --server",
-    "build": "brunch build --production"
+    "build": "rm -rf public && brunch build --production"
   },
   "devDependencies": {
     "browser-sync-brunch": "latest",
     "brunch": "latest",
     "brunch-typescript": "latest",
     "digest-brunch": "latest",
+    "normalize-scss": "latest",
     "sass-brunch": "latest",
     "uglify-js-brunch": "latest"
+  },
+  "dependencies": {
+    "@types/react": "^0.0.0",
+    "@types/react-dom": "^0.14.20",
+    "@types/react-redux": "^4.4.35",
+    "@types/redux": "^3.6.0",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.1",
+    "redux": "^3.6.0"
   }
 }
