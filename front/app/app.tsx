@@ -1,10 +1,18 @@
 import * as React from "react";
 import * as ReactDom from "react-dom";
-import {Hello} from "./hello/Hello";
+import {NotesComponent} from "./notes/notes.component";
+
+class App extends React.Component {
+    render() {
+        return <div>
+            <NotesComponent />
+        </div>
+    }
+}
 
 ReactDom.render(
-    <Hello compiler="TypeScript" framework="React"/>,
+    <App/>,
     document.getElementById("app")
 );
 
-console.log('React loaded');
+console.log('NotaBene loaded');
