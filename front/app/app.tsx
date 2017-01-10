@@ -1,3 +1,4 @@
+import "whatwg-fetch";
 import * as React from "react";
 import * as ReactDom from "react-dom";
 import {NotesComponent} from "./notes/notes.component";
@@ -15,4 +16,4 @@ ReactDom.render(
     document.getElementById("app")
 );
 
-console.log('NotaBene loaded');
+console.log("NotaBene loaded");
