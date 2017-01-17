@@ -16,7 +16,7 @@ module.exports = {
         },
         templates: {
             joinTo: 'app.js'
-        }
+        },
     },
     modules: {
         autoRequire: {
@@ -26,6 +26,9 @@ module.exports = {
     plugins: {
         brunchTypescript: {
             "jsx": "react"
+        },
+        sass: {
+            mode: 'native', // required to fix @import
         }
-    }
+    },
 };
