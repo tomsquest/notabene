@@ -1,34 +1,59 @@
+$container-border-color: #ddd;
+$header-bg: #f5f5f5;
+$border-radius: 4px;
+
 .notes-container {
-  border: 1px red solid;
   display: flex;
   flex-direction: column;
+  height: 500px;
+
+  border: 1px solid $container-border-color;
+  border-radius: $border-radius;
 }
 
 header.notes-header {
-  border: 1px blue solid;
-  line-height: 3rem;
+  padding: 10px 15px;
+  background-color: $header-bg;
+  border-bottom: 1px solid $container-border-color;
+
+  // Re-apply border radius to prevent cropping
+  border-top-left-radius: $border-radius;
+  border-top-right-radius: $border-radius;
 
   display: flex;
   justify-content: space-between;
 
   .notes-header-icon {
-    border: 1px green solid;
-    vertical-align: middle;
+    vertical-align: middle; // for img
   }
   .notes-header-title {
-    border: 1px blue solid;
     text-align: center;
     flex-grow: 1;
   }
   .notes-header-button {
-    border: 1px black solid;
   }
 }
 
 .notes-content {
-
+  flex-grow: 1;
+  overflow-y: scroll;
 }
 
+.notes-item {
+  border-bottom: 1px solid $container-border-color;
+  line-height: 2rem;
+  padding: 0 10px;
+}
+
+// re-enable when some content to set in footer
+/*
 footer.notes-footer {
-  align-items: center;
+  //padding: 10px 15px;
+  background-color: $header-bg;
+  text-align: center;
+
+  // Re-apply border radius to prevent cropping
+  border-bottom-left-radius: $border-radius;
+  border-bottom-right-radius: $border-radius;
 }
+*/

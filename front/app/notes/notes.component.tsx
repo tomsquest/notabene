@@ -5,18 +5,16 @@ export class NotesComponent extends React.Component {
         return (
             <div className="notes-container">
                 <header className="notes-header">
-                    <div className="notes-header-icon">Icon</div>
-                    <div className="notes-header-title">Title</div>
-                    <div className="notes-header-button">Search Button</div>
+                    <div className="notes-header-icon"></div>
+                    <div className="notes-header-title">Notes</div>
+                    <div className="notes-header-button"></div>
                 </header>
                 <div className="notes-content">
-                    <div className="notes-item">Item 1</div>
-                    <div className="notes-item">Item 2</div>
-                    <div className="notes-item">Item 3</div>
+                    <div className="notes-item">Note 1</div>
+                    <div className="notes-item">Note 2</div>
+                    <div className="notes-item">Note 3</div>
                 </div>
-                <footer className="notes-footer">
-                    Footer
-                </footer>
+                {/*<footer className="notes-footer"></footer>*/}
             </div>
         )
     }
