@@ -1,0 +1,34 @@
+.notes-container {
+  border: 1px red solid;
+  display: flex;
+  flex-direction: column;
+}
+
+header.notes-header {
+  border: 1px blue solid;
+  line-height: 3rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  .notes-header-icon {
+    border: 1px green solid;
+    vertical-align: middle;
+  }
+  .notes-header-title {
+    border: 1px blue solid;
+    text-align: center;
+    flex-grow: 1;
+  }
+  .notes-header-button {
+    border: 1px black solid;
+  }
+}
+
+.notes-content {
+
+}
+
+footer.notes-footer {
+  align-items: center;
+}
