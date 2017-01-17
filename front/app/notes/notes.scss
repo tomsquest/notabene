@@ -5,16 +5,16 @@ $border-radius: 4px;
 .notes-container {
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 20rem;
 
   border: 1px solid $container-border-color;
   border-radius: $border-radius;
 }
 
 header.notes-header {
-  padding: 10px 15px;
   background-color: $header-bg;
   border-bottom: 1px solid $container-border-color;
+  padding: 10px 15px;
 
   // Re-apply border radius to prevent cropping
   border-top-left-radius: $border-radius;
@@ -42,7 +42,11 @@ header.notes-header {
 .notes-item {
   border-bottom: 1px solid $container-border-color;
   line-height: 2rem;
-  padding: 0 10px;
+  padding: 0 15px;
+
+  &:last-child {
+    border-bottom: none;
+  }
 }
 
 // re-enable when some content to set in footer

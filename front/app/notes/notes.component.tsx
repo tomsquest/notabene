@@ -13,6 +13,13 @@ export class NotesComponent extends React.Component {
                     <div className="notes-item">Note 1</div>
                     <div className="notes-item">Note 2</div>
                     <div className="notes-item">Note 3</div>
+                    <div className="notes-item">Note 4</div>
+                    <div className="notes-item">Note 5</div>
+                    <div className="notes-item">Note 6</div>
+                    <div className="notes-item">Note 7</div>
+                    <div className="notes-item">Note 8</div>
+                    <div className="notes-item">Note 9</div>
+                    <div className="notes-item">Note 10</div>
                 </div>
                 {/*<footer className="notes-footer"></footer>*/}
             </div>
