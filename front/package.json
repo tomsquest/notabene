@@ -7,7 +7,7 @@
     "build": "rm -rf public && brunch build --production"
   },
   "devDependencies": {
-    "browser-sync-brunch": "latest",
+    "auto-reload-brunch": "latest",
     "brunch": "latest",
     "brunch-typescript": "latest",
     "digest-brunch": "latest",
