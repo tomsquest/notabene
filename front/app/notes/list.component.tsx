@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export class NotesComponent extends React.Component {
+export default class List extends React.Component {
     render() {
         return (
             <div className="notes-container">
