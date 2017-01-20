@@ -1,108 +1,109 @@
-$container-border-color: #ddd;
-$header-bg: #f5f5f5;
-$border-radius: 4px;
+$border-color: #ddd;
+$bg-color: #f5f5f5;
 
 .notes-container {
-  border: 4px solid $container-border-color;
+  border: 4px solid $border-color;
   display: flex;
   min-height: 100vh;
   box-sizing: border-box; // Don't show vertical scrollbar
+}
 
-  .notes-list-container {
-    display: flex;
-    flex-direction: column;
-    min-width: 30%;
-    //flex-grow: 1;
+.notes-list-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
 
-    border-right: 4px solid $container-border-color;
+  border-right: 4px solid $border-color;
+}
 
-    header.notes-list-header {
-      background-color: $header-bg;
-      border-bottom: 1px solid $container-border-color;
-      padding: 10px;
+.notes-list-header {
+  background-color: $bg-color;
+  border-bottom: 1px solid $border-color;
+  padding: 10px;
 
-      display: flex;
-      justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+}
 
-      .notes-list-header-icon {
-        vertical-align: middle; // for img
-      }
-      .notes-list-header-title {
-        text-align: center;
-        flex-grow: 1;
-      }
-      .notes-list-header-button {
-      }
-    }
+.notes-list-header-icon {
+  vertical-align: middle; // for img
+}
 
-    .notes-list-content {
-      flex-grow: 1;
-      overflow-y: scroll;
-    }
+.notes-list-header-title {
+  text-align: center;
+  flex-grow: 1;
+}
 
-    .notes-list-item {
-      border-bottom: 1px solid $container-border-color;
-      padding: 10px;
-    }
+.notes-list-header-button {
+}
 
-    // re-enable when some content to set in footer
-    /*
-    footer.notes-list-footer {
-      //padding: 10px;
-      background-color: $header-bg;
-      text-align: center;
-    }
-    */
+.notes-list-content {
+  flex-grow: 1;
+  overflow-y: scroll;
+}
+
+.notes-list-item {
+  border-bottom: 1px solid $border-color;
+  padding: 10px;
+}
+
+// re-enable when some content to set in footer
+/*
+footer.notes-list-footer {
+  //padding: 10px;
+  background-color: $header-bg;
+  text-align: center;
+}
+*/
+
+.notes-edit-container {
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.notes-edit-textarea {
+  flex: 1;
+  border: 0;
+  padding: 10px;
+  resize: none;
+}
+
+.notes-edit-footer {
+  background-color: $bg-color;
+  border-top: 1px solid $border-color;
+
+  display: flex;
+}
+
+.notes-edit-footer-lastsaved {
+  padding: 10px 30px;
+  flex: 1;
+  text-align: right;
+
+  font-size: small;
+  font-style: italic;
+  color: darkgray;
+}
+
+.notes-edit-footer-save {
+  padding: 10px 30px;
+  border: 0;
+  border-left: 1px solid $border-color;
+  background-color: $bg-color;
+  cursor: pointer;
+
+  &:hover, &:focus, &:active, &.is-active, &.active {
+    text-decoration: none;
+    transition: all 0.2s ease;
   }
-
-  .notes-edit-container {
-    flex-grow: 1;
-
-    display: flex;
-    flex-direction: column;
-
-    .notes-edit-textarea {
-      flex: 1;
-      border: 0;
-      padding: 10px;
-      resize: none;
-    }
-
-    .notes-edit-footer {
-      background-color: $header-bg;
-      border-top: 1px solid $container-border-color;
-
-      display: flex;
-
-      .notes-edit-footer-lastsaved {
-        padding: 10px 30px;
-        flex: 1;
-        text-align: right;
-
-        font-size: small;
-        font-style: italic;
-        color: darkgray;
-      }
-      .notes-edit-footer-save {
-        padding: 10px 30px;
-        border: 0;
-        border-left: 1px solid $container-border-color;
-        background-color: $header-bg;
-        cursor: pointer;
-
-        &:hover, &:focus, &:active, &.is-active, &.active {
-          text-decoration: none;
-          transition: all 0.2s ease;
-        }
-        &:hover, &:focus {
-          background-color: darken($header-bg, 5%);
-        }
-        &:active {
-          background: darken($header-bg, 20%);
-          outline: none;
-          box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
-        }
-      }
-    }
+  &:hover, &:focus {
+    background-color: darken($bg-color, 5%);
+  }
+  &:active {
+    background: darken($bg-color, 20%);
+    outline: none;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
   }
 }
