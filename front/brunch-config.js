@@ -27,8 +27,8 @@ module.exports = {
         brunchTypescript: {
             "jsx": "react"
         },
-        sass: {
-            mode: 'native', // required to fix @import
-        }
+        stylus: {
+            includeCss: true, // copy @imported css directly
+        },
     },
 };

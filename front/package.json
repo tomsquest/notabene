@@ -11,8 +11,8 @@
     "brunch": "latest",
     "brunch-typescript": "latest",
     "digest-brunch": "latest",
-    "normalize-scss": "latest",
-    "sass-brunch": "latest",
+    "sanitize.css": "latest",
+    "stylus-brunch": "latest",
     "uglify-js-brunch": "latest"
   },
   "dependencies": {
