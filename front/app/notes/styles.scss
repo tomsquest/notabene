@@ -3,61 +3,67 @@ $header-bg: #f5f5f5;
 $border-radius: 4px;
 
 .notes-container {
-  display: flex;
-  flex-direction: column;
-  height: 20rem;
 
-  border: 1px solid $container-border-color;
-  border-radius: $border-radius;
-}
+  .notes-list-container {
+    display: flex;
+    flex-direction: column;
+    height: 20rem;
 
-header.notes-header {
-  background-color: $header-bg;
-  border-bottom: 1px solid $container-border-color;
-  padding: 10px 15px;
+    border: 1px solid $container-border-color;
+    border-radius: $border-radius;
 
-  // Re-apply border radius to prevent cropping
-  border-top-left-radius: $border-radius;
-  border-top-right-radius: $border-radius;
+    header.notes-list-header {
+      background-color: $header-bg;
+      border-bottom: 1px solid $container-border-color;
+      padding: 10px 15px;
 
-  display: flex;
-  justify-content: space-between;
+      // Re-apply border radius to prevent cropping
+      border-top-left-radius: $border-radius;
+      border-top-right-radius: $border-radius;
 
-  .notes-header-icon {
-    vertical-align: middle; // for img
+      display: flex;
+      justify-content: space-between;
+
+      .notes-list-header-icon {
+        vertical-align: middle; // for img
+      }
+      .notes-list-header-title {
+        text-align: center;
+        flex-grow: 1;
+      }
+      .notes-list-header-button {
+      }
+    }
+
+    .notes-list-content {
+      flex-grow: 1;
+      overflow-y: scroll;
+    }
+
+    .notes-list-item {
+      border-bottom: 1px solid $container-border-color;
+      line-height: 2rem;
+      padding: 0 15px;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    // re-enable when some content to set in footer
+    /*
+    footer.notes-list-footer {
+      //padding: 10px 15px;
+      background-color: $header-bg;
+      text-align: center;
+
+      // Re-apply border radius to prevent cropping
+      border-bottom-left-radius: $border-radius;
+      border-bottom-right-radius: $border-radius;
+    }
+    */
   }
-  .notes-header-title {
-    text-align: center;
-    flex-grow: 1;
-  }
-  .notes-header-button {
+
+  .notes-edit-container {
   }
 }
-
-.notes-content {
-  flex-grow: 1;
-  overflow-y: scroll;
-}
-
-.notes-item {
-  border-bottom: 1px solid $container-border-color;
-  line-height: 2rem;
-  padding: 0 15px;
-
-  &:last-child {
-    border-bottom: none;
-  }
-}
-
-// re-enable when some content to set in footer
-/*
-footer.notes-footer {
-  //padding: 10px 15px;
-  background-color: $header-bg;
-  text-align: center;
-
-  // Re-apply border radius to prevent cropping
-  border-bottom-left-radius: $border-radius;
-  border-bottom-right-radius: $border-radius;
-}
-*/

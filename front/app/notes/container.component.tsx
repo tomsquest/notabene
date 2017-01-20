@@ -5,7 +5,7 @@ import Edit from "./edit.component";
 export default class NotesContainer extends React.Component {
     render() {
         return (
-            <div>
+            <div className="notes-container">
                 <List/>
                 <Edit />
             </div>
