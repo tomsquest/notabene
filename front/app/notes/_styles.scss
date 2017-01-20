@@ -80,7 +80,22 @@ $border-radius: 4px;
     .notes-edit-footer {
       background-color: $header-bg;
       border-top: 1px solid $container-border-color;
-      padding: 10px;
+
+      display: flex;
+
+      .notes-edit-footer-lastsaved {
+        padding: 10px 30px;
+        flex: 1;
+        text-align: right;
+
+        font-size: small;
+        font-style: italic;
+        color: darkgray;
+      }
+      .notes-edit-footer-save {
+        padding: 10px 30px;
+        border-left: 1px solid $container-border-color;
+      }
     }
   }
 }
