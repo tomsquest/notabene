@@ -16,14 +16,23 @@ export default class NotesContainer extends React.Component {
 
     componentDidMount() {
         const notes = new NotesApi().list();
-        this.setState({notes});
+        this.setState({
+            notes,
+            lastEditedNote: notes[0]
+        });
+    }
+
+    onSaveNote(note: Note) {
+        console.log("NotesContainer.onSaveNote", note);
     }
 
     render() {
+        const {notes, lastEditedNote} = this.state;
+
         return (
             <div className="notes-container">
-                <List notes={this.state.notes}/>
-                <Edit />
+                <List notes={notes}/>
+                <Edit note={lastEditedNote} onSubmit={this.onSaveNote}/>
             </div>
         )
     }
