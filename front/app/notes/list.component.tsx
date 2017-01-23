@@ -1,6 +1,11 @@
 import * as React from "react";
+import Note from "../api/note.model";
 
-export default class List extends React.Component {
+interface Props {
+    notes: Note[]
+}
+
+export default class List extends React.Component<Props> {
     render() {
         return (
             <div className="notes-list">
@@ -10,18 +15,10 @@ export default class List extends React.Component {
                     <div className="notes-list__header-button"></div>
                 </header>
                 <div className="notes-list__content">
-                    <div className="notes-list__item">Note 1</div>
-                    <div className="notes-list__item">Note 2</div>
-                    <div className="notes-list__item">Note 3</div>
-                    <div className="notes-list__item">Note 4</div>
-                    <div className="notes-list__item">Note 5</div>
-                    <div className="notes-list__item">Note 6</div>
-                    <div className="notes-list__item">Note 7</div>
-                    <div className="notes-list__item">Note 8</div>
-                    <div className="notes-list__item">Note 9</div>
-                    <div className="notes-list__item">Note 10</div>
+                    {this.props.notes.map((note) =>
+                        <div className="notes-list__item" key={note.id}>{note.title}</div>
+                    )}
                 </div>
-                {/*<footer className="notes-list-footer"></footer>*/}
             </div>
         )
     }
