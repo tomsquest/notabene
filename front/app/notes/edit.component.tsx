@@ -41,7 +41,7 @@ export default class Edit extends React.Component<Props, State> {
     render() {
         return (
             <form className="notes-edit" onSubmit={this.onSubmit}>
-                <textarea className="notes-edit__textarea" placeholder="Edit this note"
+                <textarea className="notes-edit__textarea" placeholder="Title\n\nSome text..."
                           value={this.state.value}
                           onChange={this.onChange}/>
                 <footer className="notes-edit__footer">
