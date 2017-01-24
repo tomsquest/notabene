@@ -1,5 +1,6 @@
 import * as React from "react";
 import Note from "../api/note.model";
+import TitleTextSplitter from "./titletextsplitter";
 
 export interface Props {
     note: Note,
@@ -30,8 +31,9 @@ export default class Edit extends React.Component<Props, State> {
     onSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const rawValue = this.state.value || "";
-        const [title, text = ""] = rawValue.split("\n\n", 2);
+        const {title, text} = new TitleTextSplitter(this.state.value).split();
+        console.log("title", title)
+        console.log("text", text)
 
         this.props.onSubmit(
             new Note(this.props.note.id, title, text)

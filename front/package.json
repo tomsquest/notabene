@@ -4,15 +4,19 @@
   "private": true,
   "scripts": {
     "start": "brunch watch --server",
-    "build": "rm -rf public && brunch build --production"
+    "build": "rm -rf public && brunch build --production",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "devDependencies": {
     "auto-reload-brunch": "latest",
     "brunch": "latest",
     "brunch-typescript": "latest",
     "digest-brunch": "latest",
+    "jest": "latest",
     "sanitize.css": "latest",
     "stylus-brunch": "latest",
+    "ts-jest": "latest",
     "uglify-js-brunch": "latest"
   },
   "dependencies": {
@@ -26,5 +30,23 @@
     "react-redux": "^5.0.1",
     "redux": "^3.6.0",
     "whatwg-fetch": "^2.0.1"
+  },
+  "jest": {
+    "notify": true,
+    "testRegex": "(.test|spec)\\.(ts|tsx|js)$",
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "globals": {
+      "__TS_CONFIG__": {
+        "module": "commonjs",
+        "jsx": "react"
+      }
+    }
   }
 }
