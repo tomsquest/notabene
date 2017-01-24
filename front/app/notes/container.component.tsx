@@ -11,24 +11,26 @@ export default class NotesContainer extends React.Component {
         this.state = {
             notes: [],
             lastEditedNote: new Note()
-        }
+        };
     }
 
     componentDidMount() {
-        const notes = new NotesApi().list();
-        this.setState({
-            notes,
-            lastEditedNote: notes[0]
-        });
+        const api = new NotesApi();
+        const notes = api.list();
+        const lastEditedNote = api.lastEdited();
+        this.setState({notes, lastEditedNote});
     }
 
-    onSaveNote(note: Note) {
-        console.log("NotesContainer.onSaveNote", note);
-    }
+    onSaveNote = (note: Note) => {
+        const api = new NotesApi();
+        api.update(note)
+        const notes = api.list();
+        const lastEditedNote = api.lastEdited();
+        this.setState({notes, lastEditedNote});
+    };
 
     render() {
         const {notes, lastEditedNote} = this.state;
-
         return (
             <div className="notes-container">
                 <List notes={notes}/>
