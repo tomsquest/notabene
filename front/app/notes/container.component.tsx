@@ -1,7 +1,7 @@
 import * as React from "react";
 import List from "./list.component";
 import Edit from "./edit.component";
-import NotesApi from "../api/Notes";
+import NotesApi from "../api/notes";
 import Note from "../api/note.model";
 
 export default class NotesContainer extends React.Component {
