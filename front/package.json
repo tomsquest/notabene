@@ -16,19 +16,14 @@
     "jest": "latest",
     "sanitize.css": "latest",
     "stylus-brunch": "latest",
-    "ts-jest": "latest",
-    "uglify-js-brunch": "latest"
+    "ts-jest": "latest"
   },
   "dependencies": {
     "@types/react": "^0.0.0",
     "@types/react-dom": "^0.14.20",
-    "@types/react-redux": "^4.4.35",
-    "@types/redux": "^3.6.0",
     "@types/whatwg-fetch": "^0.0.33",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "react-redux": "^5.0.1",
-    "redux": "^3.6.0",
     "whatwg-fetch": "^2.0.1"
   },
   "jest": {
