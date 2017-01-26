@@ -31,7 +31,6 @@ export default class NotesContainer extends React.Component {
 
     render() {
         const {notes, lastEditedNote} = this.state;
-        console.table(notes)
         return (
             <div className="notes-container">
                 <List notes={notes}/>

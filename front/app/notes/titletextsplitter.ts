@@ -3,7 +3,7 @@ export default class TitleTextSplitter {
     }
 
     split(): {title: string, text: string} {
-        const [, rawTitle = "", rawText = "",] = this.rawValue.trim().match(/\s*([ \w]*)\s*([^]*)/);
+        const [, rawTitle = "", rawText = "",] = this.rawValue.trim().match(/(.*)[\n\r]*([^]*)/);
 
         return {
             title: rawTitle.trim(),

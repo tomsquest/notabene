@@ -30,11 +30,7 @@ export default class Edit extends React.Component<Props, State> {
 
     onSubmit = (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
-
         const {title, text} = new TitleTextSplitter(this.state.value).split();
-        console.log("title", title)
-        console.log("text", text)
-
         this.props.onSubmit(
             new Note(this.props.note.id, title, text)
         );
