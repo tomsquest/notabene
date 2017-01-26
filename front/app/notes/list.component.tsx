@@ -10,9 +10,7 @@ export default class List extends React.Component<Props> {
         return (
             <div className="notes-list">
                 <header className="notes-list__header">
-                    <div className="notes-list__header-icon"></div>
                     <div className="notes-list__header-title">Notes</div>
-                    <div className="notes-list__header-button"></div>
                 </header>
                 <div className="notes-list__content">
                     {this.props.notes.map((note) =>
