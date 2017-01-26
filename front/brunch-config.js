@@ -1,4 +1,7 @@
 module.exports = {
+    conventions: {
+        ignored: /.test./
+    },
     overrides: {
         production: {
             sourceMaps: true
