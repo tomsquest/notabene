@@ -2,10 +2,16 @@ import * as React from "react";
 import Note from "../api/note.model";
 
 interface Props {
-    notes: Note[]
+    notes: Note[],
+    onNoteClick(id: string): void
 }
 
 export default class List extends React.Component<Props> {
+
+    onNoteClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
+        this.props.onNoteClick(e.currentTarget.getAttribute("id"));
+    }
+
     render() {
         return (
             <div className="notes-list">
@@ -14,7 +20,11 @@ export default class List extends React.Component<Props> {
                 </header>
                 <div className="notes-list__content">
                     {this.props.notes.map((note) =>
-                        <div className="notes-list__item" key={note.id}>{note.title}</div>
+                        <div className="notes-list__item"
+                             key={note.id} id={note.id}
+                             onClick={this.onNoteClick}>
+                            {note.title}
+                        </div>
                     )}
                 </div>
             </div>
