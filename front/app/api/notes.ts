@@ -7,6 +7,8 @@ export default class Notes {
         new Note({id: uuid.v4(), title: `Title ${i}`, text: `Some text for note ${i}`})
     );
 
+    private static lastEdited: Note = Notes.notes[0];
+
     list(): Array<Note> {
         return Object.freeze(Notes.notes);
     }
@@ -14,13 +16,15 @@ export default class Notes {
     create(newNote: Note) {
         const withId: Note = Object.assign({}, newNote, {id: uuid.v4()})
         Notes.notes = [...Notes.notes, withId]
+        Notes.lastEdited = withId
     }
 
     update(actualNote: Note) {
         Notes.notes = Notes.notes.map(note => note.id === actualNote.id ? actualNote : note);
+        Notes.lastEdited = actualNote
     }
 
     lastEdited() {
-        return Notes.notes[0];
+        return Notes.lastEdited
     }
 }
