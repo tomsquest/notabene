@@ -1,5 +1,4 @@
-$border-color = #ddd
-$bg-color = #f5f5f5
+@require "../_defaults"
 
 .notes-container
   border 4px solid $border-color
@@ -17,13 +16,23 @@ $bg-color = #f5f5f5
   &__header
     background-color $bg-color
     border-bottom 1px solid $border-color
-    padding 10px
     display flex
     justify-content space-between
+    text-align center
 
     &-title
-      text-align center
       flex-grow 1
+      padding 0.5em 1em
+
+    &-add-note
+      padding 0.5em 1em
+      text-decoration none
+      color $color
+      &:hover, &:focus, &:active
+        color black
+        background-color $border-color
+      &:visited
+        text-decoration none
 
   &__content
     flex-grow 1

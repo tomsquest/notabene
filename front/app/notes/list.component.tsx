@@ -12,11 +12,16 @@ export default class List extends React.Component<Props> {
         this.props.onNoteClick(e.currentTarget.getAttribute("id"));
     }
 
+    onAddNote = () => {
+        console.log("Add note");
+    }
+
     render() {
         return (
             <div className="notes-list">
                 <header className="notes-list__header">
                     <div className="notes-list__header-title">Notes</div>
+                    <a className="notes-list__header-add-note" onClick={this.onAddNote}>+</a>
                 </header>
                 <div className="notes-list__content">
                     {this.props.notes.map((note) =>
