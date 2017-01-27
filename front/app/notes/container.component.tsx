@@ -29,6 +29,10 @@ export default class NotesContainer extends React.Component {
         }
     }
 
+    onNewNote = () => {
+        console.log("container.onNewNote");
+    }
+
     onSaveNote = (note: Note) => {
         const api = new NotesApi();
         api.update(note)
@@ -41,7 +45,7 @@ export default class NotesContainer extends React.Component {
         const {notes, lastEditedNote} = this.state;
         return (
             <div className="notes-container">
-                <List notes={notes} onNoteClick={this.onNoteClick}/>
+                <List notes={notes} onNoteClick={this.onNoteClick} onNewNote={this.onNewNote}/>
                 <Edit note={lastEditedNote} onSubmit={this.onSaveNote}/>
             </div>
         )

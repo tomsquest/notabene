@@ -3,7 +3,8 @@ import Note from "../api/note.model";
 
 interface Props {
     notes: Note[],
-    onNoteClick(id: string): void
+    onNoteClick(id: string): void,
+    onNewNote(): void,
 }
 
 export default class List extends React.Component<Props> {
@@ -12,8 +13,8 @@ export default class List extends React.Component<Props> {
         this.props.onNoteClick(e.currentTarget.getAttribute("id"));
     }
 
-    onAddNote = () => {
-        console.log("Add note");
+    onNewNote = () => {
+        this.props.onNewNote()
     }
 
     render() {
@@ -21,7 +22,7 @@ export default class List extends React.Component<Props> {
             <div className="notes-list">
                 <header className="notes-list__header">
                     <div className="notes-list__header-title">Notes</div>
-                    <a className="notes-list__header-add-note" onClick={this.onAddNote}>+</a>
+                    <a className="notes-list__header-add-note" onClick={this.onNewNote}>+</a>
                 </header>
                 <div className="notes-list__content">
                     {this.props.notes.map((note) =>
