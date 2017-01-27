@@ -32,7 +32,7 @@ export default class Edit extends React.Component<Props, State> {
         e.preventDefault();
         const {title, text} = new TitleTextSplitter(this.state.value).split();
         this.props.onSubmit(
-            new Note(this.props.note.id, title, text)
+            new Note({id: this.props.note.id, title, text})
         );
     };
 

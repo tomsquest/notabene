@@ -10,7 +10,7 @@ export default class NotesContainer extends React.Component {
         super(props);
         this.state = {
             notes: [],
-            lastEditedNote: new Note()
+            lastEditedNote: new Note({})
         };
     }
 
@@ -30,12 +30,16 @@ export default class NotesContainer extends React.Component {
     }
 
     onNewNote = () => {
-        console.log("container.onNewNote");
+        this.setState({lastEditedNote: new Note({title: "New note", text: "Some text"})})
     }
 
     onSaveNote = (note: Note) => {
         const api = new NotesApi();
-        api.update(note)
+        if (note.id)
+            api.update(note)
+        else
+            api.create(note)
+
         const notes = api.list();
         const lastEditedNote = api.lastEdited();
         this.setState({notes, lastEditedNote});

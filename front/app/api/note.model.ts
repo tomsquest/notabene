@@ -1,6 +1,11 @@
 export default class Note {
-    constructor(readonly id: string = "",
-                readonly title: string = "",
-                readonly text: string = "") {
+    id: string
+    title: string
+    text: string
+
+    constructor({id = "", title = "", text = ""}: {id?: string, title?: string, text?: string}) {
+        this.id = id
+        this.title = title
+        this.text = text
     }
 }
