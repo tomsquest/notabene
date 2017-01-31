@@ -1,32 +1,32 @@
 import * as uuid from "uuid";
 import Note from "./note.model";
 
+let notes = Array(10).fill(0).map((e, i) =>
+    new Note({id: uuid.v4(), title: `Title ${i}`, text: `Some text for note ${i}`})
+);
+
 export default class Notes {
 
-    private static notes = Array(10).fill(0).map((e, i) =>
-        new Note({id: uuid.v4(), title: `Title ${i}`, text: `Some text for note ${i}`})
-    );
-
-    private static lastEdited: Note = Notes.notes[0];
+    private static lastEdited: Note = notes[0];
 
     list(): Array<Note> {
-        return Object.freeze(Notes.notes);
+        return Object.freeze(notes);
     }
 
     create(newNote: Note) {
         const withId: Note = Object.assign({}, newNote, {id: uuid.v4()})
-        Notes.notes = [...Notes.notes, withId]
+        notes = [...notes, withId]
         Notes.lastEdited = withId
     }
 
     update(actualNote: Note) {
-        Notes.notes = Notes.notes.map(note => note.id === actualNote.id ? actualNote : note);
+        notes = notes.map(note => note.id === actualNote.id ? actualNote : note);
         Notes.lastEdited = actualNote
     }
 
     delete(id: string) {
-        Notes.notes = Notes.notes.filter(note => note.id !== id);
-        Notes.lastEdited = Notes.notes[0]
+        notes = notes.filter(note => note.id !== id);
+        Notes.lastEdited = notes[0]
     }
 
     lastEdited() {
