@@ -36,16 +36,29 @@
 
   &__content
     flex-grow 1
+    display flex
     overflow-y scroll
+    flex-direction column
 
   &__item
+    display flex
     border-bottom 1px solid $border-color
-    padding 10px
     cursor: pointer
-    overflow: ellipsis
-
     &:hover, &:focus, &:active
       background-color $bg-color
+
+    &-title
+      flex-grow 1
+      padding 0.5em 0 0.5em 1em
+      overflow: ellipsis
+
+    &-delete
+      visibility hidden
+      padding 0.5em 1em
+
+    &:hover
+      .notes-list__item-delete
+        visibility visible
 
 .notes-edit
   flex-grow 1

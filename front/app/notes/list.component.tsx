@@ -26,10 +26,16 @@ export default class List extends React.Component<Props> {
                 </header>
                 <div className="notes-list__content">
                     {this.props.notes.map((note) =>
-                        <div className="notes-list__item"
-                             key={note.id} id={note.id}
-                             onClick={this.onNoteClick}>
-                            {note.title}
+                        <div className="notes-list__item" key={note.id}>
+                            <a className="notes-list__item-title"
+                               id={note.id}
+                               onClick={this.onNoteClick}>
+                                {note.title}
+                            </a>
+                            <a className="notes-list__item-delete"
+                               id={note.id}>
+                                X
+                            </a>
                         </div>
                     )}
                 </div>
