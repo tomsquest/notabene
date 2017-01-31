@@ -1,35 +1,32 @@
 import * as uuid from "uuid";
-import Note from "./note.model";
+import {Note} from "./note.model";
 
 let notes = Array(10).fill(0).map((e, i) =>
     new Note({id: uuid.v4(), title: `Title ${i}`, text: `Some text for note ${i}`})
 );
 
-export default class Notes {
+let lastEditedNote: Note = notes[0];
 
-    private static lastEdited: Note = notes[0];
+export const list = (): Array<Note> => {
+    return Object.freeze(notes);
+}
 
-    list(): Array<Note> {
-        return Object.freeze(notes);
-    }
+export const create = (newNote: Note): void => {
+    const withId: Note = Object.assign({}, newNote, {id: uuid.v4()})
+    notes = [...notes, withId]
+    lastEditedNote = withId
+}
 
-    create(newNote: Note) {
-        const withId: Note = Object.assign({}, newNote, {id: uuid.v4()})
-        notes = [...notes, withId]
-        Notes.lastEdited = withId
-    }
+export const update = (actualNote: Note): void => {
+    notes = notes.map(note => note.id === actualNote.id ? actualNote : note);
+    lastEditedNote = actualNote
+}
 
-    update(actualNote: Note) {
-        notes = notes.map(note => note.id === actualNote.id ? actualNote : note);
-        Notes.lastEdited = actualNote
-    }
+export const destroy = (id: string): void => {
+    notes = notes.filter(note => note.id !== id);
+    lastEditedNote = notes[0]
+}
 
-    delete(id: string) {
-        notes = notes.filter(note => note.id !== id);
-        Notes.lastEdited = notes[0]
-    }
-
-    lastEdited() {
-        return Notes.lastEdited
-    }
+export const lastEdited = (): Note => {
+    return lastEditedNote
 }

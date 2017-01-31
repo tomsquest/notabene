@@ -1,5 +1,5 @@
 import * as React from "react";
-import Note from "../api/note.model";
+import {Note} from "../api";
 import TitleTextSplitter from "./titletextsplitter";
 
 export interface Props {

@@ -1,8 +1,7 @@
 import * as React from "react";
 import List from "./list.component";
 import Edit from "./edit.component";
-import NotesApi from "../api/notes";
-import Note from "../api/note.model";
+import {Note, Notes} from "../api";
 
 export default class NotesContainer extends React.Component {
 
@@ -15,39 +14,41 @@ export default class NotesContainer extends React.Component {
     }
 
     componentDidMount() {
-        const api = new NotesApi();
-        const notes = api.list();
-        const lastEditedNote = api.lastEdited();
-        this.setState({notes, lastEditedNote});
+        this.setState({
+            notes: Notes.list(),
+            lastEditedNote: Notes.lastEdited()
+        });
     }
 
     onNewNote = () => {
-        this.setState({lastEditedNote: new Note({title: "New note", text: "Some text"})})
+        this.setState({
+            lastEditedNote: new Note({title: "New note", text: "Some text"})
+        })
     }
 
     onShowNote = (id: string) => {
-        const api = new NotesApi();
-        const note = api.list().find(note => note.id == id);
-        if (note) {
-            this.setState({lastEditedNote: note})
+        const clickedNote = Notes.list().find(note => note.id == id);
+        if (clickedNote) {
+            this.setState({lastEditedNote: clickedNote})
         }
     }
 
     onDeleteNote = (id: string) => {
-        const api = new NotesApi()
-        api.delete(id)
-        this.setState({notes: api.list()})
+        Notes.destroy(id)
+        this.setState({
+            notes: Notes.list(),
+            lastEditedNote: Notes.lastEdited()
+        })
     }
 
     onSaveNote = (note: Note) => {
-        const api = new NotesApi();
         if (note.id)
-            api.update(note)
+            Notes.update(note)
         else
-            api.create(note)
+            Notes.create(note)
 
-        const notes = api.list();
-        const lastEditedNote = api.lastEdited();
+        const notes = Notes.list();
+        const lastEditedNote = Notes.lastEdited();
         this.setState({notes, lastEditedNote});
     };
 
