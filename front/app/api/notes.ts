@@ -24,6 +24,11 @@ export default class Notes {
         Notes.lastEdited = actualNote
     }
 
+    delete(id: string) {
+        Notes.notes = Notes.notes.filter(note => note.id !== id);
+        Notes.lastEdited = Notes.notes[0]
+    }
+
     lastEdited() {
         return Notes.lastEdited
     }

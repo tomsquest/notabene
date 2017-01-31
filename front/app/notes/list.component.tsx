@@ -3,18 +3,23 @@ import Note from "../api/note.model";
 
 interface Props {
     notes: Note[],
-    onNoteClick(id: string): void,
     onNewNote(): void,
+    onNoteClick(id: string): void,
+    onDeleteNote(id: string): void,
 }
 
 export default class List extends React.Component<Props> {
+
+    onNewNote = () => {
+        this.props.onNewNote()
+    }
 
     onNoteClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
         this.props.onNoteClick(e.currentTarget.getAttribute("id"));
     }
 
-    onNewNote = () => {
-        this.props.onNewNote()
+    onDeleteNote = (e: React.SyntheticEvent<HTMLDivElement>) => {
+        this.props.onDeleteNote(e.currentTarget.getAttribute("id"))
     }
 
     render() {
@@ -33,7 +38,8 @@ export default class List extends React.Component<Props> {
                                 {note.title}
                             </a>
                             <a className="notes-list__item-delete"
-                               id={note.id}>
+                               id={note.id}
+                               onClick={this.onDeleteNote}>
                                 X
                             </a>
                         </div>

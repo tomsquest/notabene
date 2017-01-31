@@ -21,6 +21,10 @@ export default class NotesContainer extends React.Component {
         this.setState({notes, lastEditedNote});
     }
 
+    onNewNote = () => {
+        this.setState({lastEditedNote: new Note({title: "New note", text: "Some text"})})
+    }
+
     onNoteClick = (id: string) => {
         const api = new NotesApi();
         const note = api.list().find(note => note.id == id);
@@ -29,8 +33,10 @@ export default class NotesContainer extends React.Component {
         }
     }
 
-    onNewNote = () => {
-        this.setState({lastEditedNote: new Note({title: "New note", text: "Some text"})})
+    onDeleteNote = (id: string) => {
+        const api = new NotesApi()
+        api.delete(id)
+        this.setState({notes: api.list()})
     }
 
     onSaveNote = (note: Note) => {
@@ -49,7 +55,11 @@ export default class NotesContainer extends React.Component {
         const {notes, lastEditedNote} = this.state;
         return (
             <div className="notes-container">
-                <List notes={notes} onNoteClick={this.onNoteClick} onNewNote={this.onNewNote}/>
+                <List notes={notes}
+                      onNoteClick={this.onNoteClick}
+                      onNewNote={this.onNewNote}
+                      onDeleteNote={this.onDeleteNote}
+                />
                 <Edit note={lastEditedNote} onSubmit={this.onSaveNote}/>
             </div>
         )
