@@ -4,7 +4,7 @@ import Note from "../api/note.model";
 interface Props {
     notes: Note[],
     onNewNote(): void,
-    onNoteClick(id: string): void,
+    onShowNote(id: string): void,
     onDeleteNote(id: string): void,
 }
 
@@ -14,8 +14,8 @@ export default class List extends React.Component<Props> {
         this.props.onNewNote()
     }
 
-    onNoteClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
-        this.props.onNoteClick(e.currentTarget.getAttribute("id"));
+    onShowNote = (e: React.SyntheticEvent<HTMLDivElement>) => {
+        this.props.onShowNote(e.currentTarget.getAttribute("id"));
     }
 
     onDeleteNote = (e: React.SyntheticEvent<HTMLDivElement>) => {
@@ -34,7 +34,7 @@ export default class List extends React.Component<Props> {
                         <div className="notes-list__item" key={note.id}>
                             <a className="notes-list__item-title"
                                id={note.id}
-                               onClick={this.onNoteClick}>
+                               onClick={this.onShowNote}>
                                 {note.title}
                             </a>
                             <a className="notes-list__item-delete"

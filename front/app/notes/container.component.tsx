@@ -25,7 +25,7 @@ export default class NotesContainer extends React.Component {
         this.setState({lastEditedNote: new Note({title: "New note", text: "Some text"})})
     }
 
-    onNoteClick = (id: string) => {
+    onShowNote = (id: string) => {
         const api = new NotesApi();
         const note = api.list().find(note => note.id == id);
         if (note) {
@@ -56,7 +56,7 @@ export default class NotesContainer extends React.Component {
         return (
             <div className="notes-container">
                 <List notes={notes}
-                      onNoteClick={this.onNoteClick}
+                      onShowNote={this.onShowNote}
                       onNewNote={this.onNewNote}
                       onDeleteNote={this.onDeleteNote}
                 />
