@@ -14,10 +14,7 @@ export default class NotesContainer extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({
-            notes: Notes.list(),
-            lastEditedNote: Notes.lastEdited()
-        });
+        this.refreshState();
     }
 
     onNewNote = () => {
@@ -27,18 +24,15 @@ export default class NotesContainer extends React.Component {
     }
 
     onShowNote = (id: string) => {
-        const clickedNote = Notes.list().find(note => note.id == id);
-        if (clickedNote) {
-            this.setState({lastEditedNote: clickedNote})
+        const note = Notes.list().find(note => note.id == id);
+        if (note) {
+            this.setState({lastEditedNote: note})
         }
     }
 
     onDeleteNote = (id: string) => {
         Notes.destroy(id)
-        this.setState({
-            notes: Notes.list(),
-            lastEditedNote: Notes.lastEdited()
-        })
+        this.refreshState();
     }
 
     onSaveNote = (note: Note) => {
@@ -47,10 +41,14 @@ export default class NotesContainer extends React.Component {
         else
             Notes.create(note)
 
+        this.refreshState();
+    };
+
+    refreshState() {
         const notes = Notes.list();
         const lastEditedNote = Notes.lastEdited();
         this.setState({notes, lastEditedNote});
-    };
+    }
 
     render() {
         const {notes, lastEditedNote} = this.state;
