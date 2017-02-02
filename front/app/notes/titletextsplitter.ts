@@ -1,5 +1,6 @@
 export default class TitleTextSplitter {
     constructor(readonly rawValue: string) {
+        this.rawValue = rawValue || "";
     }
 
     split(): {title: string, text: string} {
