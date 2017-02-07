@@ -1,4 +1,11 @@
-npm-debug.log*
-node_modules
+# Personal notes
 NOTES.md
+
+front/npm-debug.log*
+front/node_modules
 front/public
+
+back/tmp
+back/pkg
+# "Fresh" configuration file
+back/runner.conf
