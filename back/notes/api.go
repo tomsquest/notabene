@@ -1,7 +1,6 @@
 package notes
 
 import (
-	"fmt"
 	"github.com/pressly/chi"
 	"github.com/pressly/chi/render"
 	"net/http"
@@ -16,14 +15,7 @@ func (api API) Routes() chi.Router {
 }
 
 func (api API) List(w http.ResponseWriter, r *http.Request) {
-	notes := make([]Note, 10)
-	for i := range notes {
-		notes[i] = Note{
-			ID:    fmt.Sprint(i),
-			Title: fmt.Sprint("Title", i),
-			Text:  fmt.Sprint("Text", i),
-		}
-	}
-
+	store := NewStore("notes")
+	notes := store.List()
 	render.JSON(w, r, notes)
 }
