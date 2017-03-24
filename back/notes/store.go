@@ -1,16 +1,27 @@
 package notes
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/spf13/afero"
+)
 
 type store struct {
-	path string
+	baseDir Dir
 }
 
-func NewStore(path string) *store {
-	return &store{path}
+func NewStore(fs afero.Fs, baseDirName string) (*store, error) {
+	dir, err:= OpenDir(fs, baseDirName)
+	if err != nil {
+		return nil, err
+	}
+	return &store{dir}, err
 }
 
 func (store *store) List() []Note {
+
+	//dirs := store.baseDir.ListDirectories()
+
+
 	notes := make([]Note, 10)
 	for i := range notes {
 		notes[i] = Note{
